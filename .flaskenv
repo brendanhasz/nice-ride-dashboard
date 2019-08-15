@@ -1,0 +1,1 @@
+FLASK_APP=availability_dashboard.py
