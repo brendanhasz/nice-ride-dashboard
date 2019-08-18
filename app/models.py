@@ -19,8 +19,6 @@ class Station(db.Model):
         Longitude of the station's location
     """
 
-    __tablename__ = 'stations'
-
     station_id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(256), index=True, unique=False)
     docks = db.Column(db.Integer, index=True, unique=False)
@@ -45,8 +43,7 @@ class AvailabilityHistory(db.Model):
         Number of bikes at the station
     """
 
-    __tablename__ = 'availability_history'
-
+    history_id = db.Column(db.Integer, primary_key=True)
     station_id = db.Column(db.Integer, index=True, unique=False)
     # or this? station_id = relationship("Station")
     datetime = db.Column(db.DateTime, index=True, unique=False)
@@ -75,8 +72,7 @@ class AvailabilityPrediction(db.Model):
         Type of prediction ('5prc', '50prc', '95prc', etc)
     """
 
-    __tablename__ = 'availability_predictions'
-
+    prediction_id = db.Column(db.Integer, primary_key=True)
     station_id = db.Column(db.Integer, index=True, unique=False)
     # or this? station_id = relationship("Station")
     datetime = db.Column(db.DateTime, index=True, unique=False)
@@ -87,4 +83,4 @@ class AvailabilityPrediction(db.Model):
     def __repr__(self):
         return ('<AvailabilityPrediction %r for %r at %r from %r>' %
                 (self.prediction_type, self.station_id, 
-                 self.datetime, self.prediction_datetime)
+                 self.datetime, self.prediction_datetime))
