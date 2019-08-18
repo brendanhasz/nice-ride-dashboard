@@ -1,7 +1,7 @@
-from app import db
-from app.models import Station
-from app.models import AvailabilityHistory
-from app.models import AvailabilityPrediction
+from application import db
+from application.models import Station
+from application.models import AvailabilityHistory
+from application.models import AvailabilityPrediction
 
 db.create_all()
 
